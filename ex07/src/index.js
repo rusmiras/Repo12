@@ -25,19 +25,22 @@ var collection = {
 };
 // Keep a copy of the collection for tests
 var oldCollection = JSON.parse(JSON.stringify(collection));
+
 function updateRecords(object, id, prop, value) {
     // Only change code below this line
-    if (object[id][prop] != "tracks" && value != "") {
+    if (prop !== "tracks" && value !== "") {
         object[id][prop] = value;
-    } else {
-        if (object[id][prop] == "tracks" && value!="") {
-            var newArrTracks = [];
-            newArrTracks.push(value);
-            object[id][prop] = newArrTracks;
-        }
+    } else if (prop === "tracks" && object[id].hasOwnProperty("tracks") === false) {
+        object[id][prop] = [value];
+    } else if (prop === "tracks" && value != "") {
+        object[id][prop].push(value);
+    } else if (value === "") {
         delete object[id][prop];
     }
+
     return object;
+
+
     // Only change code above this line
 }
 console.log(updateRecords(collection, 5439, "artist", "ABBA")); // Change this line

@@ -3,8 +3,12 @@ function sumFibonacci(num) {
     if (num <= 0) {
         return 0;
     } else {
-        var fib = [0, 1];
-        var sum = 1;
+        var fib = [1, 1];
+        var sum = 2;
+        if (num === 1) {
+            sum = 1;
+            return sum;
+        }
         for (var i = 2; i <= num; i++){
             fib[i] = fib[i-1] + fib[i - 2];
             if (fib[i] % 2 == 1 && fib[i] <= num) {

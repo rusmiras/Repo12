@@ -26,18 +26,18 @@ var contacts = [
 ];
 function lookUpProfile(name, prop) {
     // Only change code below this line
-   for (var i = 0; i < contacts.length; i++) {
-       if (contacts[i].firstName === name) {
-           if (contacts[i].hasOwnProperty(prop)) {
-               return contacts[i][prop];
-           } else {
-               return "No such property";
-          }
-      }
+    for (var i = 0; i < contacts.length; i++) {
+        if (contacts[i].firstName === name) {
+            if (contacts[i].hasOwnProperty(prop)) {
+                return contacts[i][prop];
+            } else {
+                return "No such property";
+            }
+        }
     }
     return "No such contact";
-        // Only change code above this line
-    }
+    // Only change code above this line
+}
 console.log(lookUpProfile("John", "likes")); // Change this line
 console.log(lookUpProfile("Jane", "lastName")); // Change this line
 console.log(lookUpProfile("Rob", "number")); // Change this line
